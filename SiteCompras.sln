@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SC.Identidade.API", "src\se
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVC", "MVC", "{BFFF757C-399F-457A-A070-5B2456D7B974}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SC.WepApp.MVC", "src\web\SC.WepApp.MVC\SC.WepApp.MVC.csproj", "{9ADCD578-93EC-4842-977E-69E933305425}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SC.WebApp.MVC", "src\web\SC.WepApp.MVC\SC.WebApp.MVC.csproj", "{9ADCD578-93EC-4842-977E-69E933305425}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{157DFFF3-AC9A-4EC6-8BE8-BE9698D6EC90}"
 EndProject
@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SC.Carrinho.API", "src\serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SC.Catalogo.API", "src\services\SC.Catalogo.API\SC.Catalogo.API.csproj", "{EC4045B2-5A88-4706-84C9-1120C7E1D35A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SC.Cliente.API", "src\services\SC.Cliente.API\SC.Cliente.API.csproj", "{96F889F1-41AA-4D4F-A1FB-733BF57AF985}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SC.Clientes.API", "src\services\SC.Cliente.API\SC.Clientes.API.csproj", "{96F889F1-41AA-4D4F-A1FB-733BF57AF985}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SC.Pagamento.API", "src\services\SC.Pagamento.API\SC.Pagamento.API.csproj", "{D5F4C9FA-2F30-4E47-8AC8-E6358D4DFA32}"
 EndProject
@@ -45,7 +45,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SC.Pedido.API", "src\servic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{7156E832-E495-486C-A4EA-801928F2CDD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC.WebApi.Core", "src\building blocks\ClassLibrary1\SC.WebApi.Core.csproj", "{3B096287-E5D1-4813-8FC0-4F6510402147}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SC.WebApi.Core", "src\building blocks\ClassLibrary1\SC.WebApi.Core.csproj", "{3B096287-E5D1-4813-8FC0-4F6510402147}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

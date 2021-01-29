@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace SC.WepApp.MVC.Extensions
+namespace SC.WebApp.MVC.Extensions
 {
     //para pegar diversos dados do usuario quando logar
     public interface IUser

@@ -4,7 +4,7 @@ namespace SC.Core.Data
 {
     public interface IUnitOfWork
     {
-        //deixar o commit independente
+       //deixar o commit independente
         Task<bool> Commit();
     }
 }

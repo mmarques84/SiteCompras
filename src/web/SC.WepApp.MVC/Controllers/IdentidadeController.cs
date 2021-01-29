@@ -87,8 +87,10 @@ namespace SC.WepApp.MVC.Controllers
         {
             var token = ObterTokenFormatado(resposta.AccessToken);
 
-            var claims = new List<Claim>();
-            claims.Add(new Claim("JWT", resposta.AccessToken));
+            var claims = new List<Claim>
+            {
+                new Claim("JWT", resposta.AccessToken)
+            };
             claims.AddRange(token.Claims);// adicionado uma lista
 
             //claimsIdentity: 

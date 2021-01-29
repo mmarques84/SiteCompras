@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SC.WepApp.MVC.Extensions;
+using System.Globalization;
 
 namespace SC.WepApp.MVC.Configuration
 {
@@ -36,6 +38,14 @@ namespace SC.WepApp.MVC.Configuration
             app.UseRouting();
 
             app.UseIdentityConfiguration();
+
+            var supportedCultures = new[] { new CultureInfo("pt-BR") };
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("pt-BR"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            });
 
             //centralizando todos os erros exceptions vai passar por aqui não precisa colocar em todo codigo
             app.UseMiddleware<ExceptionMiddleware>();
