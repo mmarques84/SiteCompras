@@ -15,22 +15,22 @@ namespace SC.Clientes.API.Data.Repository
         {
             _context = context;
         }
-
+        //estudar IUnitOfWork
         public IUnitOfWork UnitOfWork => _context;
 
         public async Task<IEnumerable<Cliente>> ObterTodos()
         {
-            return await _context.GetClientes().AsNoTracking().ToListAsync();
+            return await _context.Clientes.AsNoTracking().ToListAsync();
         }
 
         public Task<Cliente> ObterPorCpf(string cpf)
         {
-            return _context.GetClientes().FirstOrDefaultAsync(c => c.Cpf.Numero == cpf);
+            return _context.Clientes.FirstOrDefaultAsync(c => c.Cpf.Numero == cpf);
         }
 
         public void Adicionar(Cliente cliente)
         {
-            _context.GetClientes().Add(cliente);
+            _context.Clientes.Add(cliente);
         }
 
         public void Dispose()

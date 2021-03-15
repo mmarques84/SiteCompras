@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.DataAnnotations;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Polly;
 using Polly.Extensions.Http;
@@ -6,7 +8,6 @@ using Polly.Retry;
 using SC.WebApp.MVC.Extensions;
 using SC.WebApp.MVC.Services;
 using SC.WebApp.MVC.Services.Handlers;
-using SC.WepApp.MVC.Extensions;
 using SC.WepApp.MVC.Services;
 using System;
 using System.Net.Http;
@@ -15,8 +16,9 @@ namespace SC.WepApp.MVC.Configuration
 {
     public static class DependencyInjectionConfig
     {
-        public static void RegisterServices(this IServiceCollection services)
+        public static void RegisterServices(this IServiceCollection services, IConfiguration configuration)
         {
+             services.AddSingleton<IValidationAttributeAdapterProvider, CpfValidationAttributeAdapterProvider>();
             services.AddTransient<HttpClientAuthorizationDelegatingHandler>(); // pq trasiente, pq chama uma estancia de cada vez
             services.AddHttpClient<IAutenticacaoService, AutenticacaoService>();
             services.AddHttpClient<ICatalogoService, CatalogoService>()

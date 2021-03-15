@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace SC.WepApp.MVC.Controllers
 {
+
     public class MainController : Controller
     {
         protected bool ResponsePossuiErros(ResponseResult resposta)
@@ -20,5 +21,6 @@ namespace SC.WepApp.MVC.Controllers
 
             return false;
         }
+
     }
 }

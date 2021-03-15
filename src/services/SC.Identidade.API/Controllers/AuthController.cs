@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using SC.Identidade.API.Extensions;
 using SC.Identidade.API.Models;
+using SC.WebApi.Core.Controllers;
 using SC.WebAPI.Core.Identidade;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace SC.Identidade.API.Controllers
 {
-    
+
     [Route("api/identidade")]
     public class AuthController : MainController
     {

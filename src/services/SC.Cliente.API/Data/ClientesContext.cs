@@ -12,6 +12,7 @@ namespace SC.Clientes.API.Data
 {
     public sealed class ClientesContext : DbContext, IUnitOfWork
     {
+        //é para validar o sucesso do commit e validar 
         private readonly IMediatorHandler _mediatorHandler;
 
         public ClientesContext(DbContextOptions<ClientesContext> options, IMediatorHandler mediatorHandler)
@@ -22,17 +23,8 @@ namespace SC.Clientes.API.Data
             ChangeTracker.AutoDetectChangesEnabled = false;
         }
 
-        private DbSet<Cliente> clientes;
+        public DbSet<Cliente> Clientes { get; set; }
 
-        public DbSet<Cliente> GetClientes()
-        {
-            return clientes;
-        }
-
-        public void SetClientes(DbSet<Cliente> value)
-        {
-            clientes = value;
-        }
 
         public DbSet<Endereco> Enderecos { get; set; }
 
@@ -51,6 +43,7 @@ namespace SC.Clientes.API.Data
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ClientesContext).Assembly);
         }
 
+        //o commit é validad o aqui 
         public async Task<bool> Commit()
         {
             var sucesso = await base.SaveChangesAsync() > 0;
@@ -59,6 +52,8 @@ namespace SC.Clientes.API.Data
             return sucesso;
         }
     }
+
+    //varrer as entendidas e depois publicar eventoss
 
     public static class MediatorExtension
     {

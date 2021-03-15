@@ -14,6 +14,7 @@ namespace SC.Core.DomainObjects
         }
 
         private List<Event> _notificacoes;
+        //so posso ler dessa correção
         public IReadOnlyCollection<Event> Notificacoes => _notificacoes?.AsReadOnly();
 
         public void AdicionarEvento(Event evento)

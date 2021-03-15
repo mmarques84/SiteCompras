@@ -37,7 +37,7 @@ namespace SC.WepApp.MVC
 
             services.AddMvcConfiguration(Configuration);
 
-            services.RegisterServices();
+            services.RegisterServices(Configuration);
 
         }
 

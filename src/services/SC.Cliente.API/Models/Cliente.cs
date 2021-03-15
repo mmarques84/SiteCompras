@@ -18,7 +18,7 @@ namespace SC.Clientes.API.Models
 
         }
         //ctor sigla para criar um construtor
-        public Cliente(Guid id,string nome,string email,string cpf, bool excluido,Endereco endereco)
+        public Cliente(Guid id,string nome,string email,string cpf, bool excluido)
         {
             Id = id;
             Nome = nome;
