@@ -3,7 +3,7 @@
     /// <summary>
     // ela vai servir como integração
     /// </summary>
-    public abstract class IntregrationEvent : Event
+    public abstract class IntegrationEvent : Event
     {
     }
 }

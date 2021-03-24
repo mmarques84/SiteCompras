@@ -3,7 +3,7 @@
 namespace SC.Core.Messages.Integration
 {
     //pode ser usando em outra api, por essse motivo essa mensagem que vai
-    public class UsuarioRegistradoIntegrationEvent: IntregrationEvent
+    public class UsuarioRegistradoIntegrationEvent: IntegrationEvent
     {
         //
         public Guid Id { get; private set; }

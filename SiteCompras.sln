@@ -47,6 +47,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{71
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SC.WebApi.Core", "src\building blocks\ClassLibrary1\SC.WebApi.Core.csproj", "{3B096287-E5D1-4813-8FC0-4F6510402147}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SC.MesssageBus", "src\building blocks\SC.MesssageBus\MesssageBus\SC.MesssageBus.csproj", "{FE4FA35C-1643-4B03-A304-1BA806432E42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MessageBus", "MessageBus", "{3AA6B198-E833-4133-9064-154030174CA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +93,10 @@ Global
 		{3B096287-E5D1-4813-8FC0-4F6510402147}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B096287-E5D1-4813-8FC0-4F6510402147}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B096287-E5D1-4813-8FC0-4F6510402147}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE4FA35C-1643-4B03-A304-1BA806432E42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE4FA35C-1643-4B03-A304-1BA806432E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE4FA35C-1643-4B03-A304-1BA806432E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE4FA35C-1643-4B03-A304-1BA806432E42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +123,8 @@ Global
 		{4BBD741C-7967-4953-8FFA-D88B14A99552} = {A78FED5E-1C70-41AC-8391-FE5D92AB9795}
 		{7156E832-E495-486C-A4EA-801928F2CDD2} = {2CC15A2E-7C0D-4C2A-84E7-DC235600BC5B}
 		{3B096287-E5D1-4813-8FC0-4F6510402147} = {7156E832-E495-486C-A4EA-801928F2CDD2}
+		{FE4FA35C-1643-4B03-A304-1BA806432E42} = {3AA6B198-E833-4133-9064-154030174CA7}
+		{3AA6B198-E833-4133-9064-154030174CA7} = {2CC15A2E-7C0D-4C2A-84E7-DC235600BC5B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {119DB097-9412-4ABF-ACE4-5A666C1A37CF}

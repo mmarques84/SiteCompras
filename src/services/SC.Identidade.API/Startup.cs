@@ -50,6 +50,8 @@ namespace SC.Identidade.API
             services.AddApiConfiguration();
 
             services.AddSwaggerConfiguration();
+            //adicioanr o messege bus
+            services.AddMessageBusConfiguration(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

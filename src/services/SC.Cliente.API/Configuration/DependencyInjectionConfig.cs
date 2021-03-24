@@ -6,6 +6,7 @@ using SC.Clientes.API.Application.Events;
 using SC.Clientes.API.Data;
 using SC.Clientes.API.Data.Repository;
 using SC.Clientes.API.Models;
+using SC.Clientes.API.Services;
 using SC.Core.Mediator;
 
 namespace SC.Clientes.API.Configuration
@@ -22,6 +23,8 @@ namespace SC.Clientes.API.Configuration
 
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<ClientesContext>();
+            //um objeto singloton, 
+           // services.AddHostedService<RegistroClienteIntegrationHandler>();
         }
     }
 }

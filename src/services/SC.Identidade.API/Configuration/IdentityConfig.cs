@@ -58,12 +58,12 @@ namespace SC.Identidade.API.Configuration
             return services;
         }
 
-        public static IApplicationBuilder UseIdentityConfiguration(this IApplicationBuilder app)
-        {
-            app.UseAuthentication();
-            app.UseAuthorization();
+        //public static IApplicationBuilder UseIdentityConfiguration(this IApplicationBuilder app)
+        //{
+        //    app.UseAuthentication();
+        //    app.UseAuthorization();
 
-            return app;
-        }
+        //    return app;
+        //}
     }
 }

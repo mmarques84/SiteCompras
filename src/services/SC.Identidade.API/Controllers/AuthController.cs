@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using SC.Core.Messages.Integration;
 using SC.Identidade.API.Models;
+using SC.MessageBus;
 using SC.WebApi.Core.Controllers;
 using SC.WebAPI.Core.Identidade;
 using System;
@@ -24,15 +26,18 @@ namespace SC.Identidade.API.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettings _appSettings;
+        private readonly IMessageBus _bus;
 
         public AuthController(SignInManager<IdentityUser> signInManager,
                               UserManager<IdentityUser> userManager,
-                              IOptions<AppSettings> appSettings
+                              IOptions<AppSettings> appSettings,
+                              IMessageBus bus
             )
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _appSettings = appSettings.Value;
+            _bus = bus;
         }
         [HttpPost("novo-usuario")]
         public async Task<ActionResult> Registrar(UsuarioRegistro usuarioRegistro)
@@ -52,8 +57,17 @@ namespace SC.Identidade.API.Controllers
 
             if (result.Succeeded)
             {
-               // await _signInManager.SignInAsync(user, isPersistent: false);
-                return Ok(await GerarJwt(usuarioRegistro.Email));
+
+                var clienteResult = await RegistrarCliente(usuarioRegistro);
+
+                if (!clienteResult.ValidationResult.IsValid)
+                {
+                    //se não criar o cliente, não cria o usuario
+                    await _userManager.DeleteAsync(user);
+                    return CustomResponse(clienteResult.ValidationResult);
+                }
+
+                return CustomResponse(await GerarJwt(usuarioRegistro.Email));
             }
 
             foreach (var erro in result.Errors)
@@ -194,7 +208,23 @@ namespace SC.Identidade.API.Controllers
         }
         private static long ToUnixEpochDate(DateTime date)
           => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)).TotalSeconds);
+        private async Task<ResponseMessage> RegistrarCliente(UsuarioRegistro usuarioRegistro)
+        {
+            var usuario = await _userManager.FindByEmailAsync(usuarioRegistro.Email);
 
+            var usuarioRegistrado = new UsuarioRegistradoIntegrationEvent(
+                Guid.Parse(usuario.Id), usuarioRegistro.Nome, usuarioRegistro.Email, usuarioRegistro.Cpf,true);
+
+            try
+            {
+                return await _bus.RequestAsync<UsuarioRegistradoIntegrationEvent, ResponseMessage>(usuarioRegistrado);
+            }
+            catch
+            {
+                await _userManager.DeleteAsync(usuario);
+                throw;
+            }
+        }
 
     }
 }

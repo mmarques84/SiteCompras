@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
@@ -21,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\building blocks\ClassLibrary1\SC.WebApi.Core.csproj" />
     <ProjectReference Include="..\..\building blocks\SC.Core\SC.Core.csproj" />
+    <ProjectReference Include="..\..\building blocks\SC.MesssageBus\MesssageBus\SC.MesssageBus.csproj" />
   </ItemGroup>
 
   <ItemGroup>
